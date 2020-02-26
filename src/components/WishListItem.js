@@ -14,12 +14,12 @@ function WishListItem(props) {
     const classes = useStyles();
     return (
         <Grid item xs={3}>
-        <Card>
+        <Card data-cy="WishListItem">
           <CardHeader
             title={props.name}
             subheader={props.category}
             action={
-              <IconButton aria-label="like">
+              <IconButton aria-label="like" data-cy="LikeButton" onClick={() => props.likeItem(props.id)} color={props.selected.includes(props.id) ? "secondary" : "default"}>
                 <FavoriteIcon />
               </IconButton>
             }

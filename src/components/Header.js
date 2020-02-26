@@ -13,7 +13,7 @@ function Header() {
     const classes = useStyles();
     return (
         <Grid item xs={12}>
-            <Typography variant="h2" classname={classes.header} align="center">
+            <Typography variant="h2" className={classes.header} align="center">
                 Wish List
 </Typography>
         </Grid>
