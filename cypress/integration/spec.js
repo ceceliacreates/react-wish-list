@@ -17,6 +17,10 @@ describe('ui elements render properly', function () {
     it('validates SendList component loaded', function () {
         cy.contains('Send Your List')
     })
+
+    it('validates SelectedList component loaded', function () {
+        cy.contains('Select some items above!')
+    })
 })
 
 describe('like button behavior', function() {
@@ -32,4 +36,11 @@ describe('like button behavior', function() {
     })
 })
 
-describe('')
+describe('selected list behavior', function() {
+    this.beforeEach(function () {
+        cy.visit('localhost:3000')
+    })
+    it('adds selected item to list when like button clicked', function () {
+        cy.get('[data-cy="LikeButton"]')
+    })
+})
