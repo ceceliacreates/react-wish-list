@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import WishListContainer from './components/WishListContainer';
 import SendList from './components/SendList'
 import Header from './components/Header';
+import SelectedList from './components/SelectedList';
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +34,14 @@ class App extends Component {
         <Grid container spacing={3}>
           <Header />
           <WishListContainer likeItem={this.likeItem} selected={this.state.selected} />
+        </Grid>
+        <Grid container spacing={3}>
+          <Grid item xs={6}>
           <SendList />
+          </Grid>
+          <Grid item xs={6}>
+          <SelectedList selected={this.state.selected}/>
+          </Grid>
         </Grid>
       </Container>
     </div>
