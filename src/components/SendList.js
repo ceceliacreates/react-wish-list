@@ -15,14 +15,14 @@ const useStyles = makeStyles(theme => ({
     }
   }));
 
-function SendList() {
+function SendList(props) {
     const classes = useStyles();
     return (
         <>
         <Grid item xs={12}>
             <Typography className={classes.heading} variant="h4">Send Your List</Typography>
-            <TextField className={classes.input} required id="sender-email" variant="outlined" defaultValue="Your Email" />
-            <TextField className={classes.input} required id="recipient-email" variant="outlined" defaultValue="Recipient Email" />
+            <TextField className={classes.input} onChange={props.handleChange} onClick={props.clearDefault} required id="sender-email" variant="outlined" value={props.sender} />
+            <TextField className={classes.input} onChange={props.handleChange} onClick={props.clearDefault} required id="recipient-email" variant="outlined" value={props.recipient} />
         </Grid>
         <Grid item xs={12}>
             <Button className={classes.button} variant="contained" color="primary">Send</Button>

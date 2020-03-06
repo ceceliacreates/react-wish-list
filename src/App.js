@@ -11,7 +11,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: []
+      selected: [],
+      sender: "Sender Email",
+      recipient: "Recipient Email"
     }
   }
 
@@ -27,6 +29,24 @@ class App extends Component {
 
     this.setState({selected: selections})
   }
+
+  handleChange = (e) => {
+    if (e.target.id === "sender-email") {
+      this.setState({sender: e.target.value})
+    }
+    if (e.target.id === "recipient-email") {
+      this.setState({recipient: e.target.value})
+    }
+  }
+
+  clearDefault = (e) => {
+    if (e.target.value === "Sender Email") {
+      this.setState({sender: ""})
+    }
+    if (e.target.value === "Recipient Email") {
+      this.setState({recipient: ""})
+    }
+  }
   render () {
     return(
     <div >
@@ -37,7 +57,7 @@ class App extends Component {
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs={6}>
-          <SendList />
+          <SendList sender={this.state.sender} recipient={this.state.recipient} clearDefault={this.clearDefault} handleChange={this.handleChange} />
           </Grid>
           <Grid item xs={6}>
           <SelectedList selected={this.state.selected}/>
